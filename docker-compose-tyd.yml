@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  webdav:
+    image: bytemark/webdav
+    container_name: webdav
+    restart: always
+    ports:
+      - "8070:80"
+    environment:
+      AUTH_TYPE: Digest
+      USERNAME: booyah
+      PASSWORD: repo
+      ANONYMOUS_METHODS: ALL
+    volumes:
+      - /srv/dev-disk-by-uuid-7568fd20-861a-4307-aafb-adbb0e64ca2a/global-sync/Sync/Samba/ServerShare/webdav:/var/lib/dav/data
